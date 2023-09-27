@@ -36,10 +36,11 @@ function Carousel({ photos, title }) {
       <h1>{title}</h1>
       <div className="Carousel-main">
 
-        <i hidden={(currCardIdx === 0) ? 'hidden' : ''}
+        <i
           className="bi bi-arrow-left-circle"
           onClick={goBackward}
-          />
+          style={{ visibility: currCardIdx === 0 ? 'hidden' : '' }}
+        />
 
         <Card
           caption={currCard.caption}
@@ -48,9 +49,10 @@ function Carousel({ photos, title }) {
           totalNum={total}
         />
 
-        <i hidden={currCardIdx === (total - 1) ? 'hidden' : ''}
+        <i
           className="bi bi-arrow-right-circle"
           onClick={goForward}
+          style={{ visibility: currCardIdx === total - 1 ? 'hidden' : '' }}
         />
 
       </div>
