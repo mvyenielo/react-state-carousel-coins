@@ -3,15 +3,15 @@ import Card from "./Card";
 import TEST_IMAGES from "./_testCommon.js";
 
 it("matches snapshot", function () {
-  const { container } = render(
+  const { container, debug } = render(
     <Card
       caption={TEST_IMAGES[0].caption}
       src={TEST_IMAGES[0].src}
-      currNum={TEST_IMAGES[0].currNum}
-      totalNum={TEST_IMAGES[0].totalNum}
+      currNum={1}
+      totalNum={3}
     />
   );
-
+  debug(container);
   expect(container).toMatchSnapshot();
 });
 
@@ -20,8 +20,8 @@ it("renders without crashing", function () {
     <Card
       caption={TEST_IMAGES[0].caption}
       src={TEST_IMAGES[0].src}
-      currNum={TEST_IMAGES[0].currNum}
-      totalNum={TEST_IMAGES[0].totalNum}
+      currNum={1}
+      totalNum={3}
     />
   );
 });

@@ -25,30 +25,40 @@ function Carousel({ photos, title }) {
     setCurrCardIdx(currCardIdx + 1);
   }
 
+  //Decrements currCardIdx state by 1
+  function goBackward() {
+    setCurrCardIdx(currCardIdx - 1);
+  }
+  //TODO: apply visibility to arrows conditioanlly
+
   return (
     <div className="Carousel">
       <h1>{title}</h1>
       <div className="Carousel-main">
-        <i
+
+        <i hidden={(currCardIdx === 0) ? 'hidden' : ''}
           className="bi bi-arrow-left-circle"
-          onClick={goForward}
-        />
+          onClick={goBackward}
+          />
+
         <Card
           caption={currCard.caption}
           src={currCard.src}
           currNum={currCardIdx + 1}
           totalNum={total}
         />
-        <i
+
+        <i hidden={currCardIdx === (total - 1) ? 'hidden' : ''}
           className="bi bi-arrow-right-circle"
           onClick={goForward}
         />
+
       </div>
     </div>
   );
 }
 
-// FIXME:
+// DONE:
 // add goBackwards function?
 // handle reaching last index with conditional
 
